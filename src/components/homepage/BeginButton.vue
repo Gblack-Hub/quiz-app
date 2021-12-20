@@ -35,10 +35,12 @@ export default {
         padding: 1.375rem 4rem;
         font-size: 1rem;
         margin: 15px 0px;
+        transition: 0.5s;
     }
     button:hover {
         background-color: var(--secondary-color);
         transition: 0.5s;
+        color: #000;
     }
 
     button:focus {
