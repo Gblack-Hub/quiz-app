@@ -12,31 +12,34 @@
 
 <script>
 import SingleQuestion from "../../components/questions/SingleQuestion.vue";
-import {questions} from "../../utils/questions";
 
 export default {
     name: 'QuestionsPage',
     components: {
        SingleQuestion 
     },
-    data() {
-        return {
-            questions: questions
+    computed: {
+        questions() {
+            return this.$store.getters.getQuestions;
         }
     },
     mounted() {
         this.fetchQuestions();
     },
     methods: {
-        async fetchQuestions() {
-            try {
-                const res = await fetch("../../utils/questions.json")
-                console.log(res);
-                // const data = await res.json();
+        fetchQuestions() {
+            // fetch('../../utils/questions.json')
+            //     .then(response => response.json())
+            //     .then(json => console.log(json))
 
-            } catch (error) {
-                console.log(error.message);
-            }
+            // try {
+            //     const res = await fetch("../../utils/questions.json")
+            //     const data = await res.json();
+            //     console.log(data);
+
+            // } catch (error) {
+            //     console.log(error.message);
+            // }
         },
 
         submitAnswers() {
@@ -47,7 +50,7 @@ export default {
 </script>
 <style scoped>
     #questions-page-main {
-        margin: 1.9rem;
+        margin: 1rem;
     }
     .questions-page-title {
         text-align: center;
@@ -79,5 +82,11 @@ export default {
         background-color: var(--secondary-color);
         transition: 0.5s;
         color: #000;
+    }
+
+    @media only screen and (min-width: 576px){
+        #questions-page-main {
+            margin: 1.9rem;
+        }
     }
 </style>
