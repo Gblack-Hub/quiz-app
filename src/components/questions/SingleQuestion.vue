@@ -15,11 +15,6 @@ export default {
             type: Object
         }
     },
-    data() {
-        return {
-            selectedAnswers: []
-        }
-    },
     methods: {
         selectOption(question, answer) {
             let answerData = {
@@ -27,9 +22,7 @@ export default {
                 correctAnswerId: question.correctAnswerId,
                 answerId: answer.id
             }
-
-            this.selectedAnswers.push(answerData)
-            console.log(this.selectedAnswers, answerData);
+            this.$store.commit('ADD_ANSWER', answerData);
         }
     }
 }

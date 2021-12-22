@@ -12,6 +12,7 @@
 
 <script>
 import SingleQuestion from "../../components/questions/SingleQuestion.vue";
+import {mapState} from "vuex";
 
 export default {
     name: 'QuestionsPage',
@@ -19,31 +20,11 @@ export default {
        SingleQuestion 
     },
     computed: {
-        questions() {
-            return this.$store.getters.getQuestions;
-        }
-    },
-    mounted() {
-        this.fetchQuestions();
+        ...mapState(['questions', 'selectedAnswers'])
     },
     methods: {
-        fetchQuestions() {
-            // fetch('../../utils/questions.json')
-            //     .then(response => response.json())
-            //     .then(json => console.log(json))
-
-            // try {
-            //     const res = await fetch("../../utils/questions.json")
-            //     const data = await res.json();
-            //     console.log(data);
-
-            // } catch (error) {
-            //     console.log(error.message);
-            // }
-        },
-
         submitAnswers() {
-            console.log(this.questions);
+            this.$store.commit('SUBMIT_ANSWERS');
         }
     }
 }
