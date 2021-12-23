@@ -3,17 +3,17 @@
         <transition name="fade" appear>
             <HeroText />
         </transition>
-        <BeginButton />
+        <div>
+            <router-link to="/questions" class="button">Click here to begin &rarr;</router-link>
+        </div>
     </div>
 </template>
 <script>
 import HeroText from './HeroText.vue'
-import BeginButton from './BeginButton.vue'
 
 export default {
     name: 'HeroComponent',
     components: {
-        BeginButton,
         HeroText
     }
 }
@@ -21,11 +21,12 @@ export default {
 <style scoped>
     #hero-main {
         width: 90%;
-        height: 100%;
+        height: 90%;
         margin: auto;
         display: flex;
         flex-direction: column;
         align-content: space-between;
+        align-items: center;
     }
 
     .fade-enter-from {
@@ -38,6 +39,11 @@ export default {
     }
     .fade-enter-active {
         transition: all 1.5s ease;
+    }
+
+    .button {
+        display: inline;
+        padding: 1.475rem 4rem;
     }
     
     @media screen and (min-width: 576px){

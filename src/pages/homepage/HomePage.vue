@@ -1,7 +1,7 @@
 <template>
-  <section>
+  <div id="homepage-main">
       <Hero />
-  </section>
+  </div>
 </template>
 
 <script>
@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style scoped>
-  section {
+  #homepage-main {
     height: 100vh;
   }
 </style>

@@ -5,7 +5,8 @@ import { questions } from "../utils/questions.json";
 export default createStore({
   state: {
     questions: questions,
-    selectedAnswers: []
+    selectedAnswers: [],
+    unansweredQuestions: []
   },
   getters: {
     getCorrectAnswers: state => state.selectedAnswers.filter((item) => item.correctAnswerId === item.answerId),
@@ -29,8 +30,19 @@ export default createStore({
         function handleUnansweredQuestions(){
           console.log(selectedAnswers);
         }
+        let un = [];
 
         if(selectedAnswers.length < questions.length) {
+            questions.forEach(function(question) {
+              selectedAnswers.forEach(function(selected){
+                console.log(question.id, selected.questionId)
+                // if(question.id !== selected.questionId){
+                //   un.push(question.id);
+                // }
+              })
+            });
+            
+            console.log(un);
             console.log("less than original length");
             handleUnansweredQuestions();
             return;
