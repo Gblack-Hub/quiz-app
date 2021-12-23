@@ -17,6 +17,6 @@ export default {
 
 <style scoped>
   #homepage-main {
-    height: 100vh;
+    height: 90vh;
   }
 </style>

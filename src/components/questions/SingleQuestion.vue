@@ -1,6 +1,6 @@
 <template>
     <div id="single-question-main">
-        <div :class="renderClassByAnswered(question.id)">{{question.question}}</div>
+        <div :class="renderClassByAnswered(question.id)">{{number}}. {{question.question}}</div>
         <label v-for="(answer, index) in question.options" :key="index" class="single-question-option">
             <input type="radio" :name="question.id" :value="answer.id" @change="selectOption(question, answer)" /> {{answer.option}} <br />
         </label>
@@ -15,6 +15,9 @@ export default {
     props: {
         question: {
             type: Object
+        },
+        number: {
+            type: Number
         }
     },
     computed: {

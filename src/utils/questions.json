@@ -2,31 +2,101 @@
     "questions": [
         {
             "id": 1,
-            "question": "First lorem text",
+            "question": "What is the main difference between equity and debt?",
             "correctAnswerId": 1,
             "options": [
-                { "id": 1, "option": "Option One" },
+                { "id": 1, "option": "Equity represents ownership" },
                 { "id": 2, "option": "Option Two" },
                 { "id": 3, "option": "Option Three" }
             ]
         },
         {
             "id": 2,
-            "question": "Second lorem text",
+            "question": "What does an exit effectively do?",
             "correctAnswerId": 2,
             "options": [
                 { "id": 1, "option": "Option One" },
-                { "id": 2, "option": "Option Two" },
+                { "id": 2, "option": "It allows the venture capitalist to sell their equity in some fashion" },
                 { "id": 3, "option": "Option Three" }
             ]
         },
         {
             "id": 3,
-            "question": "Third lorem text",
+            "question": "What is meant by 'exit strategy'?",
             "correctAnswerId": 3,
             "options": [
                 { "id": 1, "option": "Option One" },
                 { "id": 2, "option": "Option Two" },
+                { "id": 3, "option": "It is how the target company is planning to liquidate all investors and give them a return for their investment." }
+            ]
+        },
+        {
+            "id": 4,
+            "question": "What level of involvement will a venture capital firm typically have?",
+            "correctAnswerId": 1,
+            "options": [
+                { "id": 1, "option": "No day to day involvement; involvement through participation in the board of directors only" },
+                { "id": 2, "option": "Option Two" },
+                { "id": 3, "option": "Option Three" }
+            ]
+        },
+        {
+            "id": 5,
+            "question": "What does a venture capitalist look like to its investors",
+            "correctAnswerId": 2,
+            "options": [
+                { "id": 1, "option": "Option One" },
+                { "id": 2, "option": "A mutual fund" },
+                { "id": 3, "option": "Option Three" }
+            ]
+        },
+        {
+            "id": 6,
+            "question": "What is the importance of the intellectual property (IP) which venture capitalists focus heavily on?",
+            "correctAnswerId": 3,
+            "options": [
+                { "id": 1, "option": "Option One" },
+                { "id": 2, "option": "Option Two" },
+                { "id": 3, "option": "IP can be a key deciding factor" }
+            ]
+        },
+        {
+            "id": 7,
+            "question": "What role do committees play?",
+            "correctAnswerId": 1,
+            "options": [
+                { "id": 1, "option": "They act as specialized arms of the board to address specific topics such as Human Resources or Accounting and Finance Matters." },
+                { "id": 2, "option": "Option Two" },
+                { "id": 3, "option": "Option Three" }
+            ]
+        },
+        {
+            "id": 8,
+            "question": "When is the due diligence process done?",
+            "correctAnswerId": 2,
+            "options": [
+                { "id": 1, "option": "Option One" },
+                { "id": 2, "option": "Before getting engaged with the potential target investment" },
+                { "id": 3, "option": "Option Three" }
+            ]
+        },
+        {
+            "id": 9,
+            "question": "What is a 'first round' investment?",
+            "correctAnswerId": 1,
+            "options": [
+                { "id": 1, "option": "An investment in a company which is at the idea stage" },
+                { "id": 2, "option": "Option Two" },
+                { "id": 3, "option": "Option Three" }
+            ]
+        },
+        {
+            "id": 10,
+            "question": "What options does a venture capitalist have when holding convertible debt?",
+            "correctAnswerId": 2,
+            "options": [
+                { "id": 1, "option": "Option One" },
+                { "id": 2, "option": "They can keep their investment as debt" },
                 { "id": 3, "option": "Option Three" }
             ]
         }

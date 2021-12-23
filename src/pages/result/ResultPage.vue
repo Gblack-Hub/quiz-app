@@ -3,7 +3,7 @@
         <div class="result-information-container">
             <div>Your answers were submitted successfully!</div>
             <h1>You scored <span class="score">{{ calculatePercentage(getCorrectAnswers.length, questions.length) }}%</span></h1>
-            <small>You got <span class="font-bold">{{getCorrectAnswers.length}}</span> out of <span class="font-bold">{{questions.length}}</span> question{{questions.length > 0 ? 's' : ''}} right.</small>
+            <small class="primary-alert">You got <span class="font-bold">{{getCorrectAnswers.length}}</span> out of <span class="font-bold">{{questions.length}}</span> question{{questions.length > 0 ? 's' : ''}} right.</small>
         </div>
         <router-link to="/" class="button">Finish</router-link>
     </div>
@@ -48,6 +48,12 @@ export default {
     }
     .font-bold {
         font-weight: bold;
+    }
+    .primary-alert {
+        padding: 0.5rem 1rem;
+        color: var(--primary-color);
+        text-align: center;
+        border-radius: 9px;
     }
 
     @media only screen and(min-width: 576px) {

@@ -2,7 +2,7 @@
     <div id="questions-page-main">
         <h2 class="questions-page-title">Answer the following questions</h2>
         <div v-for="(question, index) in questions" :key="index">
-            <SingleQuestion :question="question" />
+            <SingleQuestion :question="question" :number="++index" />
         </div>
         <div v-if="!getIsAnswersComplete && isSubmitted" class="danger-alert">Please answer all the questions</div>
         <div class="submit-button-container">
