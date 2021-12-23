@@ -2,13 +2,17 @@ import { createStore } from "vuex";
 import router from "../router/index";
 import { questions } from "../utils/questions.json";
 
-export default createStore({
-  state: {
+const getDefaultState = () => {
+  return {
     questions: questions,
     selectedAnswers: [],
     unansweredQuestions: [],
     isSubmitted: false
-  },
+  }
+}
+
+export default createStore({
+  state: getDefaultState(),
   getters: {
     getCorrectAnswers: state => state.selectedAnswers.filter((item) => item.correctAnswerId === item.answerId),
     getWrongAnswers: state => state.selectedAnswers.filter((item) => item.correctAnswerId !== item.answerId),
@@ -36,6 +40,10 @@ export default createStore({
 
         router.push({ path: `/result` });
     },
+    FINISH_AND_RESET_STATE (state) {
+      Object.assign(state, getDefaultState())
+      router.push("/");
+    }
   },
 
 });

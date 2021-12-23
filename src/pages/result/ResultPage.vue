@@ -5,7 +5,7 @@
             <h1>You scored <span class="score">{{ calculatePercentage(getCorrectAnswers.length, questions.length) }}%</span></h1>
             <small class="primary-alert">You got <span class="font-bold">{{getCorrectAnswers.length}}</span> out of <span class="font-bold">{{questions.length}}</span> question{{questions.length > 0 ? 's' : ''}} right.</small>
         </div>
-        <router-link to="/" class="button">Finish</router-link>
+        <button @click="finish()" class="button">Finish</button>
     </div>
 </template>
 <script>
@@ -21,6 +21,9 @@ export default {
     methods: {
         calculatePercentage(value, total) {
             return ((value / total) * 100).toFixed(2);
+        },
+        finish() {
+            this.$store.commit("FINISH_AND_RESET_STATE")
         }
     }
 }
