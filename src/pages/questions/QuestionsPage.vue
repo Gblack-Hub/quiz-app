@@ -4,6 +4,7 @@
         <div v-for="(question, index) in questions" :key="index">
             <SingleQuestion :question="question" />
         </div>
+        <div v-if="!getIsAnswersComplete && isSubmitted" class="danger-alert">Please answer all the questions</div>
         <div class="submit-button-container">
             <button class="button" @click="submitAnswers">Submit</button>
         </div>
@@ -12,7 +13,8 @@
 
 <script>
 import SingleQuestion from "../../components/questions/SingleQuestion.vue";
-import {mapState} from "vuex";
+import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
     name: 'QuestionsPage',
@@ -20,7 +22,8 @@ export default {
        SingleQuestion 
     },
     computed: {
-        ...mapState(['questions', 'selectedAnswers'])
+        ...mapState(['questions', 'selectedAnswers', 'isSubmitted']),
+        ...mapGetters(['getIsAnswersComplete'])
     },
     methods: {
         submitAnswers() {
@@ -39,6 +42,13 @@ export default {
     }
     .submit-button-container {
         text-align: right;
+    }
+    .danger-alert {
+        padding: 0.5rem;
+        background: rgba(255, 0, 0, 0.5);
+        color: #fff;
+        text-align: center;
+        border-radius: 9px;
     }
 
     @media only screen and (min-width: 576px){

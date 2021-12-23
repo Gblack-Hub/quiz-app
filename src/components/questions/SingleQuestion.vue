@@ -1,6 +1,6 @@
 <template>
     <div id="single-question-main">
-        <div class="single-question-text">{{question.question}}</div>
+        <div :class="renderClassByAnswered(question.id)">{{question.question}}</div>
         <label v-for="(answer, index) in question.options" :key="index" class="single-question-option">
             <input type="radio" :name="question.id" :value="answer.id" @change="selectOption(question, answer)" /> {{answer.option}} <br />
         </label>
@@ -8,12 +8,17 @@
 </template>
 
 <script>
+import {mapState} from "vuex";
+
 export default {
     name: "SingleQuestion",
     props: {
         question: {
             type: Object
         }
+    },
+    computed: {
+        ...mapState(['selectedAnswers', 'isSubmitted'])
     },
     methods: {
         selectOption(question, answer) {
@@ -23,6 +28,14 @@ export default {
                 answerId: answer.id
             }
             this.$store.commit('ADD_ANSWER', answerData);
+        },
+        renderClassByAnswered(questionId) {
+            const selectedAnswersIdArray = this.selectedAnswers.map(item => item.questionId);
+
+            if(!selectedAnswersIdArray.includes(questionId) && this.isSubmitted){
+                return "single-question-text danger-text";
+            }
+            return "single-question-text";
         }
     }
 }
@@ -42,6 +55,8 @@ export default {
     }
     .single-question-option {
         padding: 0.35rem 0;
-        /* display: inline-block; */
+    }
+    .danger-text {
+        color: red;
     }
 </style>

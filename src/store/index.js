@@ -6,12 +6,13 @@ export default createStore({
   state: {
     questions: questions,
     selectedAnswers: [],
-    unansweredQuestions: []
+    unansweredQuestions: [],
+    isSubmitted: false
   },
   getters: {
     getCorrectAnswers: state => state.selectedAnswers.filter((item) => item.correctAnswerId === item.answerId),
     getWrongAnswers: state => state.selectedAnswers.filter((item) => item.correctAnswerId !== item.answerId),
-    // getScorePercentage: (state, getters) => (getters.getCorrectAnswers.length / state.questions.length) * 100
+    getIsAnswersComplete: state => state.selectedAnswers.length === state.questions.length
   },
   mutations: {
     ADD_ANSWER({selectedAnswers}, payload) {
@@ -26,25 +27,10 @@ export default createStore({
         }
         selectedAnswers.push(payload);
     },
-    SUBMIT_ANSWERS({selectedAnswers}) {
-        function handleUnansweredQuestions(){
-          console.log(selectedAnswers);
-        }
-        let un = [];
+    SUBMIT_ANSWERS(state) {
+        state.isSubmitted = true;
 
-        if(selectedAnswers.length < questions.length) {
-            questions.forEach(function(question) {
-              selectedAnswers.forEach(function(selected){
-                console.log(question.id, selected.questionId)
-                // if(question.id !== selected.questionId){
-                //   un.push(question.id);
-                // }
-              })
-            });
-            
-            console.log(un);
-            console.log("less than original length");
-            handleUnansweredQuestions();
+        if(state.selectedAnswers.length < state.questions.length) {
             return;
         }
 
