@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "../../src/pages/homepage/HomePage.vue";
 import QuestionsPage from "../../src/pages/questions/QuestionsPage.vue";
-import PageNotFound from "../../src/pages/others/PageNotFound.vue";
+import Page404 from "../../src/pages/others/Page404.vue";
 
 const routes = [
   {
@@ -16,7 +16,7 @@ const routes = [
   },
   {
     path: "/:pathMatch(.*)*",
-    component: PageNotFound,
+    component: Page404,
   },
   {
     path: '/result',

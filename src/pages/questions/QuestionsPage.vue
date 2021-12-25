@@ -2,9 +2,9 @@
     <div id="questions-page-main">
         <h2 class="questions-page-title">Answer the following questions</h2>
         <div v-for="(question, index) in questions" :key="index">
-            <SingleQuestion :question="question" :number="++index" />
+            <QuestionItem :question="question" :number="++index" />
         </div>
-        <div v-if="!getIsAnswersComplete && isSubmitted" class="danger-alert">Please answer all the questions</div>
+        <div v-if="!getIsAnswersComplete && isSubmitted" key="feedback" class="danger-alert">Please answer all the questions</div>
         <div class="submit-button-container">
             <button class="button" @click="submitAnswers">Submit</button>
         </div>
@@ -12,14 +12,14 @@
 </template>
 
 <script>
-import SingleQuestion from "../../components/questions/SingleQuestion.vue";
+import QuestionItem from "../../components/questions/QuestionItem.vue";
 import { mapState } from "vuex";
 import { mapGetters } from "vuex";
 
 export default {
     name: 'QuestionsPage',
     components: {
-       SingleQuestion 
+       QuestionItem 
     },
     computed: {
         ...mapState(['questions', 'selectedAnswers', 'isSubmitted']),

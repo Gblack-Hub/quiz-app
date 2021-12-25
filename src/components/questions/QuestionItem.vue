@@ -11,13 +11,15 @@
 import {mapState} from "vuex";
 
 export default {
-    name: "SingleQuestion",
+    name: "QuestionItem",
     props: {
         question: {
-            type: Object
+            type: Object,
+            required: true
         },
         number: {
-            type: Number
+            type: Number,
+            required: true
         }
     },
     computed: {
